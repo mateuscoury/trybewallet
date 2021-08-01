@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpenses } from '../actions/index';
 import TabelaHead from './tabelaHead';
+import './table.css';
 
 class Tabela extends React.Component {
   constructor() {
@@ -18,37 +19,34 @@ class Tabela extends React.Component {
   render() {
     const { expenses } = this.props;
     return (
-      <div>
+      <div id='tableContainer'>
         <table>
           <TabelaHead />
           <tbody>
             {expenses.map((expense) => (
-              <tr key={ expense.id }>
+              <tr key={expense.id}>
                 <td>{expense.description}</td>
                 <td>{expense.tag}</td>
                 <td>{expense.method}</td>
                 <td>{expense.value}</td>
                 <td>{expense.exchangeRates[expense.currency].name}</td>
                 <td>
-                  {parseFloat(
-                    expense.exchangeRates[expense.currency].ask,
-                  ).toFixed(2)}
+                  {parseFloat(expense.exchangeRates[expense.currency].ask).toFixed(2)}
                 </td>
                 <td>
                   {parseFloat(
-                    expense.value * expense.exchangeRates[expense.currency].ask,
+                    expense.value * expense.exchangeRates[expense.currency].ask
                   ).toFixed(2)}
                 </td>
                 <td>Real</td>
-                <td>
-                  <button
-                    data-testid="delete-btn"
-                    type="button"
-                    onClick={ () => this.handleDelet(expense.id) }
-                  >
-                    Excluir
-                  </button>
-                </td>
+
+                <button
+                  data-testid='delete-btn'
+                  type='button'
+                  onClick={() => this.handleDelet(expense.id)}
+                >
+                  Excluir
+                </button>
               </tr>
             ))}
           </tbody>
@@ -68,7 +66,7 @@ Tabela.propTypes = {
       tag: PropTypes.string,
       value: PropTypes.number,
       id: PropTypes.number,
-    }),
+    })
   ).isRequired,
   deleteExpense: PropTypes.func.isRequired,
 };

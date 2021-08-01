@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../actions/index';
+import './login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -17,32 +18,36 @@ class Login extends React.Component {
     const { addemail, history, email } = this.props;
     const { password } = this.state;
     return (
-      <form>
-        <label htmlFor="label-email">
-          Email
+      <div id='containerr'>
+        <img src='https://image.flaticon.com/icons/png/512/218/218390.png' />
+        <form>
+          <label htmlFor='label-email'>Email</label>
           <input
-            type="text"
-            data-testid="email-input"
-            onChange={ (e) => addemail(e.target.value) }
+            name='email'
+            placeholder='Digite seu email'
+            type='email'
+            autoComplete='true'
+            data-testid='email-input'
+            onChange={(e) => addemail(e.target.value)}
           />
-        </label>
-        <label htmlFor="label-senha">
-          Senha
+          <label htmlFor='label-senha'>Senha</label>
           <input
-            type="text"
-            data-testid="password-input"
-            onChange={ ({ target }) => this.setState({ password: target.value }) }
+            name='password'
+            autoComplete='true'
+            placeholder='Digite sua senha'
+            type='password'
+            data-testid='password-input'
+            onChange={({ target }) => this.setState({ password: target.value })}
           />
-        </label>
-        <button
-          type="button"
-          disabled={ !regexEmail.test(email) || password.length < minLength }
-          onClick={ () => history.push('/carteira') }
-        >
-          Entrar
-        </button>
-
-      </form>
+          <button
+            type='button'
+            disabled={!regexEmail.test(email) || password.length < minLength}
+            onClick={() => history.push('/carteira')}
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     );
   }
 }
@@ -52,7 +57,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToPops = (state) => ({
   email: state.user.email,
-
 });
 
 Login.propTypes = {

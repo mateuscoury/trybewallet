@@ -1,10 +1,10 @@
 import React from 'react';
-
+import './table.css';
 class TabelaHead extends React.Component {
   render() {
     return (
       <thead>
-        <tr>
+        <tr id='zin'>
           <th>Descrição</th>
           <th>Tag</th>
           <th>Método de pagamento</th>

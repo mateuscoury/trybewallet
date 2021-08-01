@@ -1,0 +1,53 @@
+#containerForm {
+  background-color: rgb(45, 48, 65);
+  display: flex;
+  height: 100px;
+}
+#containerForm form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+#containerForm select {
+  padding: 15px;
+  outline-color: darkblue;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+}
+#containerForm button {
+  padding: 15px;
+  background-color: rgb(87, 141, 240);
+  margin-right: 15px;
+  border-radius: 5px;
+
+  border: none;
+}
+#bla {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+#bla input {
+  padding: 15px;
+  outline-color: darkblue;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+}
+#bla select {
+  padding: 15px;
+  outline-color: darkblue;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+}
